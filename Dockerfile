@@ -25,10 +25,6 @@ WORKDIR /root/
 # ビルドした実行ファイルをコピー
 COPY --from=builder /app/server .
 
-# 環境変数ファイルをコピー
-COPY --from=builder /app/.env .env_check
-RUN if [ -f .env_check ]; then mv .env_check .env; else rm -f .env_check; fi
-
 # ポート80を開放
 EXPOSE 80
 
