@@ -4,14 +4,14 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 125605020607.dkr.ecr.ap-northeast-1.amazonaws.com
   build:
     commands:
       - echo Building the Docker image...
       - docker build -t cloudtech-reservation-api .
-      - docker tag cloudtech-reservation-api:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/cloudtech-reservation-api:latest
+      - docker tag cloudtech-reservation-api:latest 125605020607.dkr.ecr.ap-northeast-1.amazonaws.com/cloudtech-reservation-api:latest
   post_build:
     commands:
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/cloudtech-reservation-api:latest
+      - docker push 125605020607.dkr.ecr.ap-northeast-1.amazonaws.com/cloudtech-reservation-api:latest
       - echo Build completed on `date`
