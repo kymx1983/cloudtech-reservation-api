@@ -13,9 +13,7 @@ import (
 
 func init() {
 	// .envファイルから環境変数を読み込む
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	godotenv.Load()
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
