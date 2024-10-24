@@ -25,9 +25,6 @@ WORKDIR /root/
 # ビルドした実行ファイルをコピー
 COPY --from=builder /app/server .
 
-# 環境変数ファイルをコピー
-COPY .env .
-
 # ポート80を開放
 EXPOSE 80
 
